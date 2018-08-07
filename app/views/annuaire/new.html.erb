@@ -1,0 +1,27 @@
+<div class="container">
+	<%= form_for @annuaire, url: annuaire_index_path do |f| %>
+        <div class="form-group">
+            <label for="num_dept">Numéro du département</label>
+            <%= f.text_field :num_dept, class: "form-control form-control-lg" %>
+        </div>
+
+        <div class="form-group">
+            <label for="nom_dpt">Nom du département</label>
+            <%= f.text_area :nom_dpt, class: "form-control form-control-lg text-editor" %>
+        </div>
+    
+        <div class="form-group">
+            <label for="commune">Commune</label>
+            <%= f.text_area :commune, class: "form-control form-control-lg text-editor" %>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <%= f.text_area :email, class: "form-control form-control-lg text-editor" %>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-lg btn-primary">Créer l'annuaire</button>
+        </div>
+	<% end %>
+</div>

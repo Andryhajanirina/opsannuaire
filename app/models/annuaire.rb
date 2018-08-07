@@ -1,0 +1,2 @@
+class Annuaire < ApplicationRecord
+end
