@@ -36,7 +36,7 @@
 
         <div class="collapse navbar-collapse" id="navbarColor01">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -44,7 +44,7 @@
             </li>
             <li class="nav-item">
               <% if user_signed_in? %>
-                <a class="nav-link btn btn-outline-danger" href="<%= destroy_user_session_path %>">Se déconnecter</a>
+                <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class: "nav-link btn btn-outline-danger" %>
               <% else %>
                 <a class="nav-link btn btn-outline-success" href="<%= new_user_session_path %>">Se connecter</a>
               </li>
