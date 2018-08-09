@@ -1,18 +1,20 @@
 <div class="container">
-	<table>
-	<% @annuaires.each do |element| %>
+	<table border="1" class="col-sm-12">
 		<tr>
-			<td>Numero dept : <%= element.num_dept %></td>
+			<th>N° de département</th>
+			<th>Nom de département</th>
+			<th>Nom de commune</th>
+			<th>Email du mairie</th>
+			<th>Opérateur</th>
 		</tr>
-		<tr>
-			<td>Nom dept : <%= element.nom_dpt %></td>
-		</tr>
-		<tr>
-			<td>Commune : <%= element.commune %></td>
-		</tr>
-		<tr>
-			<td>Email : <%= element.email %></td>
-		</tr>
-	<% end %>
+		<% @annuaires.each do |element| %>
+			<tr>
+				<td><%= element.num_dept %></td>
+				<td><%= element.nom_dpt %></td>
+				<td><%= element.commune %></td>
+				<td><%= element.email %></td>
+				<td><%= element.email %></td> <!-- A remplacer par le créateur du post -->
+			</tr>
+		<% end %>
 	</table>
 </div>

@@ -15,6 +15,7 @@
     <!-- CSS Bootstrap local -->
 
     <!-- Font awesome -->
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/brands.css">
     <link rel="stylesheet" href="css/fontawesome.css">
@@ -39,15 +40,17 @@
             <li class="nav-item">
               <a class="nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<%= new_annuaire_path %>">Ajouter Annuaire</a>
-            </li>
-            <li class="nav-item">
               <% if user_signed_in? %>
-                <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class: "nav-link btn btn-outline-danger" %>
+                <li class="nav-item">
+                  <%= link_to 'Ajouter Annuaire', new_annuaire_path, class: "nav-link btn btn-outline-info" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class: "nav-link btn btn-outline-danger" %>
+                </li>
               <% else %>
-                <a class="nav-link btn btn-outline-success" href="<%= new_user_session_path %>">Se connecter</a>
-              </li>
+                <li class="nav-item">
+                  <a class="nav-link btn btn-outline-success" href="<%= new_user_session_path %>">Se connecter</a>
+                </li>
               <li class="nav-item">
                 <a class="nav-link btn btn-outline-info" href="<%= new_user_registration_path %>">S'enregistrer</a>
               </li>
