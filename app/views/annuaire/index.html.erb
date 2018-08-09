@@ -1,20 +1,24 @@
 <div class="container">
-	<table border="1" class="col-sm-12">
-		<tr>
-			<th>N° de département</th>
-			<th>Nom de département</th>
-			<th>Nom de commune</th>
-			<th>Email du mairie</th>
-			<th>Opérateur</th>
-		</tr>
-		<% @annuaires.each do |element| %>
+	<table class="table table-hover">
+		<thead>
 			<tr>
+				<th scope="col">N° de département</th>
+				<th scope="col">Nom de département</th>
+				<th scope="col">Nom de commune</th>
+				<th scope="col">Email du mairie</th>
+				<th scope="col">Opérateur</th>
+			</tr>
+		</thead>
+  		<tbody>
+			<% @annuaires.each do |element| %>
+	    	<tr class="table-active">
 				<td><%= element.num_dept %></td>
 				<td><%= element.nom_dpt %></td>
 				<td><%= element.commune %></td>
 				<td><%= element.email %></td>
 				<td><%= element.email %></td> <!-- A remplacer par le créateur du post -->
 			</tr>
-		<% end %>
+			<% end %>
+  		</tbody>
 	</table>
 </div>
