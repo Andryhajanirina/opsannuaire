@@ -16,7 +16,7 @@
 				<td><%= element.nom_dpt %></td>
 				<td><%= element.commune %></td>
 				<td><%= element.email %></td>
-				<td><%= element.email %></td> <!-- A remplacer par le créateur du post -->
+				<td><%= User.find(element.user_id).username %></td> <!-- A remplacer par le créateur du post -->
 			</tr>
 			<% end %>
   		</tbody>

@@ -1,7 +1,11 @@
 class AnnuaireController < ApplicationController
 	before_action :get_id, only: [:show]
   def index
-  	@annuaires = Annuaire.all
+    if params[:term] # Si le paramètre  term existe, c-à-d quand l'utilisateur un nom dans le formulaire de recherche
+      @annuaires = Annuaire.joins(:user).where("lower(#{:username}) LIKE '%#{params[:term].downcase}%'").all
+    else
+      @annuaires = Annuaire.all
+    end
   end
 
   def new
@@ -9,15 +13,16 @@ class AnnuaireController < ApplicationController
   end
 
   def create
-  	@annuaire = Annuaire.new(annuaire_params)
-	@annuaire.save
-    if @annuaire
-      flash[:success] = "Annuaire enregistré avec succès"
-      redirect_to annuaire_index_path
-    else
-      flash[:notice] = "Il y a peut-être un erreur"
-      render "new"
-    end
+    @annuaire_user = User.find(current_user.id)
+    @annuaire = Annuaire.new(annuaire_params)
+    @annuaire.user = @annuaire_user
+      if @annuaire.save
+        flash[:success] = "Annuaire enregistré avec succès"
+        redirect_to annuaire_index_path
+      else
+        flash[:notice] = "Erreur lors de validation, vérifier si les champs sont rempli correctement"
+        render "new"
+      end
   end
 
   def show
